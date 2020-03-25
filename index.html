@@ -32,11 +32,42 @@
 
 </head>
 
-<body>
+<body data-spy="scroll" data-target=".navbar" data-offset="65">
     <!-- Preloader -->
     <div id="preloader">
         <div id="status">&nbsp;</div>
     </div>
+
+    <!-- header -->
+    <header>
+        <nav class="navbar navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="site-nav-wrapper ">
+                    <div class="nav-header">
+                        <!-- Logo -->
+                        <a href="#home" class="navbar-brand smooth-scroll">
+                            <img src="/img/logo/logo.png" alt="logo">
+                        </a>
+                    </div>
+
+                    <!-- Main Menu -->
+                    <div class="container">
+                        <div class="collapse navbar-collapse">
+                            <ul class="nav navbar-nav pull-right">
+                                <li><a class="smooth-scroll" href="#home">Home</a></li>
+                                <li><a class="smooth-scroll" href="#about">About</a></li>
+                                <li><a class="smooth-scroll" href="#team">Team</a></li>
+                                <li><a class="smooth-scroll" href="#services">Services</a></li>
+                                <li><a class="smooth-scroll" href="#portfolio">Work</a></li>
+                                <li><a class="smooth-scroll" href="#blog">Blog</a></li>
+                                <li><a class="smooth-scroll" href="#contact">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
 
     <!-- Home -->
     <section id="home">
@@ -63,14 +94,15 @@
                         </p>
                     </div>
                     <div id="home-btn">
-                        <a class="btn btn-general btn-home" href="#about" title="Start Now">Start Now</a>
+                        <a class="btn btn-general btn-home smooth-scroll" href="#about" title="Start Now">Start
+                            Now</a>
                     </div>
                 </div>
 
             </div>
         </div>
         <!-- Arrow Down -->
-        <a href="#about" id="arrow-down">
+        <a href="#about" id="arrow-down" class="smooth-scroll">
             <i class="fa fa-angle-down"></i>
         </a>
     </section>
@@ -1319,10 +1351,16 @@
                 </div>
             </div>
         </div>
+
+        <a href="#home" id="back-to-top" class="btn btn-sm btn-yellow btn-back-to-top" title="home" role="button">
+            <i class="fa fa-angle-up"></i>
+        </a>
     </footer>
 
     <!-- JQuery -->
-    <script src=" js/jquery.js"> </script> <!-- Bootstrap -->
+    <script src=" js/jquery.js"> </script>
+
+    <!-- Bootstrap -->
     <script src="js/bootstrap/bootstrap.js"></script>
 
     <!-- Owl Carousel -->
