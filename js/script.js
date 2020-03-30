@@ -7,7 +7,6 @@ $(window).on('load', function () {
     $('#preloader').delay(350).fadeOut('slow');
 });
 
-
 /* ===================================
                 Team
 ===================================== */
@@ -22,6 +21,14 @@ $(function () {
         nav: true,
         dots: false,
         navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+        responsive: {
+            0: {
+                items: 1
+            },
+            480: {
+                items: 2
+            }
+        }
 
     });
 });
@@ -109,7 +116,7 @@ $(function () {
         autoplayHoverPause: true,
         nav: true,
         dots: false,
-        navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+        navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>']
 
     });
 });
@@ -141,6 +148,17 @@ $(function () {
         nav: true,
         dots: false,
         navText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+        responsive: {
+            0: {
+                items: 2
+            },
+            480: {
+                items: 3
+            },
+            768: {
+                items: 6
+            }
+        }
 
     });
 });
@@ -170,46 +188,31 @@ $(function () {
 })
 
 
-
 /* ===================================
         Navigation scroll
 ===================================== */
 
 
-/* Navigation scroll */
+// Smooth Scrolling
 
-// Select all links with hashes
-$('a[href*="#"]')
-    // Remove links that don't actually link to anything
-    .not('[href="#"]')
-    .not('[href="#0"]')
-    .click(function (event) {
-        // On-page links
-        if (
-            location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') &&
-            location.hostname == this.hostname
-        ) {
-            // Figure out element to scroll to
-            var target = $(this.hash);
-            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-            // Does a scroll target exist?
-            if (target.length) {
-                // Only prevent default if animation is actually gonna happen
-                event.preventDefault();
-                $('html, body').animate({
-                    scrollTop: target.offset().top
-                }, 1000, function () {
-                    // Callback after animation
-                    // Must change focus!
-                    var $target = $(target);
-                    $target.focus();
-                    if ($target.is(":focus")) { // Checking if the target was focused
-                        return false;
-                    } else {
-                        $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
-                        $target.focus(); // Set focus again
-                    };
-                });
-            }
-        }
-    });
+$(function () {
+    $("a.smooth-scroll").click(function (event) {
+        event.preventDefault();
+
+        var section_id = $(this).attr("href");
+
+        $("html, body").animate({
+            scrollTop: $(section_id).offset().top
+        }, 1250, "easeInOutExpo")
+    })
+})
+
+$(function () {
+    $("#mobile-nav-open-btn").click(function () {
+        $("#mobile-nav").css("height", "100%");
+    })
+
+    $("#mobile-nav-close-btn, #mobile-nav a").click(function () {
+        $("#mobile-nav").css("height", "0%");
+    })
+})
