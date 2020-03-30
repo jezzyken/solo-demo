@@ -171,7 +171,7 @@ $(function () {
 $(function () {
     $(window).scroll(function () {
         showHideNav();
-    })
+    });
 
     function showHideNav() {
         if ($(window).scrollTop() > 50) {
@@ -185,7 +185,7 @@ $(function () {
             $("#back-to-top").fadeOut();
         }
     }
-})
+});
 
 
 /* ===================================
@@ -204,15 +204,32 @@ $(function () {
         $("html, body").animate({
             scrollTop: $(section_id).offset().top
         }, 1250, "easeInOutExpo")
-    })
-})
+    });
+});
 
 $(function () {
     $("#mobile-nav-open-btn").click(function () {
         $("#mobile-nav").css("height", "100%");
-    })
+    });
 
     $("#mobile-nav-close-btn, #mobile-nav a").click(function () {
         $("#mobile-nav").css("height", "0%");
-    })
-})
+    });
+});
+
+/* ===================================
+            Animation
+===================================== */
+
+// Animation On Scroll
+$(function () {
+    new WOW().init();
+});
+
+$(window).on('load', function () {
+    $("#home-heading-1").addClass("animated fadeInDown");
+    $("#home-heading-2").addClass("animated fadeInLeft");
+    $("#home-text").addClass("animated zoomIn");
+    $("#home-btn").addClass("animated zoomIn");
+    $("#arrow-down i").addClass("animated fadeInDown infinite");
+});
